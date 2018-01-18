@@ -1,3 +1,5 @@
+<img alt="Logo" src="onlight.png" width=300>
+
 # Vector Express - Free Vector Converting API
 
 http://vector.express
