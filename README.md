@@ -2,7 +2,8 @@
 
 http://vector.express
 
-Vector Express is a free website and API for converting vector files. Made with love by [@Smidyo](https://twitter.com/smidyo) Runs a combination of Inkscape, SVGO and a custom made DXF (and soon DWG) converter under the hood.
+Vector Express is a free website and API for converting vector files. Made with love by [@Smidyo](https://twitter.com/smidyo) 
+Runs a combination of Inkscape, SVGO and a custom made DXF (and soon DWG) converter under the hood.
 
 ## API
 
