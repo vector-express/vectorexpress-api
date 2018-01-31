@@ -1,12 +1,13 @@
 <img alt="Logo" src="onlight.png" width=300>
 
 # Vector Express - Free Vector Converting API
+### Now with DWG support!
 
 http://vector.express
 
 Vector Express is a free website and API for converting vector files. Made with love by [@Smidyo](https://twitter.com/smidyo)
 
-Runs a combination of Inkscape, SVGO and a custom made DXF (and soon DWG) converter under the hood.
+Runs a combination of Inkscape, SVGO and a custom made Autocad converter under the hood.
 
 ## API
 
@@ -43,9 +44,9 @@ At the moment we can convert from these formats:
 - eps
 - ps
 - hpgl
-- dxf
 - plt
-- (dwg coming soon)
+- dxf
+- dwg
 
 ..to these formats
 
