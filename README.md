@@ -1,7 +1,7 @@
 <img alt="Logo" src="onlight.png" width=300>
 
 # Vector Express - Free Vector Converting API
-### Now with DWG support!
+### Update 2019 - Now SSL secured
 
 http://vector.express
 
@@ -19,13 +19,13 @@ Useage is simple, just provide your file in the form field `file` and your desir
 
 Examples:
 
-POST `vector.express/api/public/vectorconvert?toextension=optimizedsvg`
+POST `https://vector.express/api/public/vectorconvert?toextension=optimizedsvg`
 
-POST `vector.express/api/public/vectorconvert?toextension=svg`
+POST `https://vector.express/api/public/vectorconvert?toextension=svg`
 
-POST `vector.express/api/public/vectorconvert?toextension=eps`
+POST `https://vector.express/api/public/vectorconvert?toextension=eps`
 
-POST `vector.express/api/public/vectorconvert?toextension=pdf`
+POST `https://vector.express/api/public/vectorconvert?toextension=pdf`
 
 
 ### Limits
