@@ -57,4 +57,4 @@ At the moment we can convert from these formats:
 
 ## Feedback
 
-Feel free to open up an issue, or just tweet at us. Or mail us! smidyo@cnc-design.fi  
+Feel free to open up an issue, or just tweet at us. Or mail us! frank@smidyo.com  
