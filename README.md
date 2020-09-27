@@ -3,6 +3,8 @@
 # Vector Express - Free Vector Converting API
 ### Update September 2020 - Version 2.0!
 
+[https://github.com/smidyo/vectorexpress-api/blob/master/v1.md](Looking for API v1?)
+
 Visual interface:
 https://vector.express
 
@@ -73,7 +75,7 @@ Custom CadLib based converter for AutoCAD files.
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
 | In     |    |     | ✓   | ✓   |     |      |     |     |    |     |
-| Out    |    |     |     | ✓   |     |      |     |     |    | *1  |
+| Out    |    |     |     | ✓   |     |      |     |     |    | ✓ *1|
 
 *1 Arcs and curves are converted to lines
 
