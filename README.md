@@ -25,7 +25,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/890e639ae3094e3617c0)
 
-1. GET the conversion `path` from your source format to the target form
+1. GET the a compatible conversion `path` for your input format and desired output format.
 
 `curl https://vector.express/api/v2/public/convert/dxf/auto/svg/`
 
