@@ -3,8 +3,6 @@
 # [Vector Express](https://vector.express) - Free Vector Converting API
 ### Update September 2020 - Version 2.0!
 
-[Looking for API v1?](https://github.com/smidyo/vectorexpress-api/blob/master/v1.md)
-
 Visual interface:
 https://vector.express
 
