@@ -1,4 +1,4 @@
-<img alt="Logo" src="logo.png" width=300>
+<img alt="Logo" src="logo.svg" width=300>
 
 # [Vector Express](https://vector.express) - Free Vector Converting API
 ### Update September 2020 - Version 2.0!
