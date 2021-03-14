@@ -1,12 +1,12 @@
 <img alt="Logo" src="logo.svg" width=300>
 
-# [Vector Express](https://vector.express) - Free Vector Converting API
-### Update September 2020 - Version 2.0!
+# [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
+### Update March 2021 - Analyzing & Processing added
 
-Visual interface:
-https://vector.express
+Read more: https://www.smidyo.com/vector-express
+API Frontend: https://vector.express
 
-Vector Express 2.0 is a free website and API for converting vector files. Made with love by [@Smidyo](https://twitter.com/smidyo)
+Vector Express is a free-to-use API for converting, analyzing and processing vector files. Made with love by [@Smidyo](https://twitter.com/smidyo)
 
 It runs a combination of different conversion programs that can be chained together to convert between a wide area of formats.
 
@@ -36,7 +36,8 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 `curl https://vector.express/api/v2/public/files/[id].svg --output converted.svg`
 
 
-## 🔗 API
+
+## 🪄 Convert
 
 ### Get possible conversion paths between formats
 
@@ -52,21 +53,9 @@ You can up chain to three programs in the conversion path, and even configure th
 `POST https://vector.express/api/v2/public/convert/ext/prog1/ext/prog2/ext?prog1-opt=val&prog2-opt=val`
 
 
-### Get a file
+### Available convertors
 
-`GET https://vector.express/api/v2/public/files/filename.ext`
-
-
-### Convert using an existing file 
-
-You can also convert using an already uploaded or converted file
-
-`POST https://vector.express/api/v2/public/convert/ext/prog1/ext/prog2?use-file=filename.ext`
-
-
-## ⚙️ Supported programs
-
-### /cadlib/
+#### /cadlib/
 
 Custom CadLib based converter for AutoCAD files.
 
@@ -83,7 +72,7 @@ Custom CadLib based converter for AutoCAD files.
 |arc-segments|Number|Line segment amount on arcs|
 
 
-### /gs/
+#### /gs/
 
 [Ghostscript](https://www.ghostscript.com/) based converter.
 
@@ -93,7 +82,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-### /hp2xx/
+#### /hp2xx/
 
 [hp2xx](https://www.gnu.org/software/hp2xx/) based converter for postscript.
 
@@ -103,7 +92,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      |     |     |    | ✓   |
 
 
-### /libcdr/
+#### /libcdr/
 
 [libcdr](https://wiki.documentfoundation.org/DLP/Libraries/libcdr) based converter for CorelDRAW files.
 
@@ -113,7 +102,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     |     |      |     |     |    | ✓   |
 
 
-### /librsvg/
+#### /librsvg/
 
 [librsvg](https://github.com/GNOME/librsvg) based converter for converting SVG files to various formats.
 
@@ -123,7 +112,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-### /pdf2svg/
+#### /pdf2svg/
 
 [pdf2svg](https://github.com/dawbarton/pdf2svg) based converter for PDF files to SVG.
 
@@ -137,7 +126,7 @@ Custom CadLib based converter for AutoCAD files.
 |page|Number|Which page to export|
 
 
-### /pstoedit/
+#### /pstoedit/
 
 [pstoedit](http://www.calvina.de/pstoedit/) for converting EPS files to DXF.
 
@@ -157,7 +146,7 @@ Custom CadLib based converter for AutoCAD files.
 |rgb|Boolean|
 
 
-### /svgo/
+#### /svgo/
 
 [SVGO](https://github.com/svg/svgo) is an SVG optimizer.
 
@@ -176,7 +165,7 @@ Custom CadLib based converter for AutoCAD files.
 |multipass|Boolean||
 
 
-### /uniconvertor/
+#### /uniconvertor/
 
 [Uniconvertor](https://sk1project.net/uc2/) based converter for various formats.
 
@@ -186,14 +175,97 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     |     |      | ✓   | ✓   |    | ✓   |
 
 
+
+## 🔍 Analyze
+
+### Analyze a file
+
+You can analyze vector files using this endpoint. The result is always a json file. The analyzers can be configured through the query string.
+
+`GET https://vector.express/api/v2/public/analyze/ext/analyzer`
+`GET https://vector.express/api/v2/public/analyze/ext/analyzer1?analyzer-opt1=val&analyzer-opt2=val`
+
+### Available analyzers
+
+#### /svg/groups/
+
+Returns a list of all groups in an SVG.
+
+
+
+## ⚙️ Process
+
+### Process a file
+
+You can process vector files using this endpoint. The processors can be configured through the query string.
+
+`GET https://vector.express/api/v2/public/process/ext/processor`
+`GET https://vector.express/api/v2/public/process/ext/processor?processor-opt1=val&processor-opt2=val`
+
+### Available processors
+
+#### /svg/exclude-groups/
+
+Excludes certain groups from an SVG.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
+
+
+#### /svg/include-only-groups/
+
+Includes only certain groups from an SVG.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|groups|String|A list of group ID's to include, separated using the NUL syntax (%00)|
+
+
+#### /svg/xpath/
+
+Returns a section of an SVG file using the xpath syntax.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|xpath|String|The xpath query|
+|text-output|Boolean|If true, the resulting file is a .txt, otherwise it is an .xml file|
+|add-root|Boolean|Whether or not to add the root element|
+
+
+
+## 📄 Get a file
+
+After getting the result you can retrieve your files here.
+
+`GET https://vector.express/api/v2/public/files/filename.ext`
+
+
+
+## 📨 Using an existing file 
+
+You can also use an already uploaded or resulting file through the `use-file` query string.
+
+`POST https://vector.express/api/v2/public/convert/ext/prog1/ext/prog2?use-file=filename.ext`
+
+
+
 ## 🛑 Limits
 
 Currently the public API is limited to 60 requests per hour, and a maximum output filesize of 10mb and certain CPU and memory limitations.
 
 
-## Increase limits?
+
+## 🔼 Increase limits?
+
+We offer a pay-as-you go plan that removes the rate limit and increases maximum file to 40 MB. Read more here: https://www.smidyo.com/vector-express
+
+
+
+## 💡 Feature request?
 
 Get in touch with us and we'll see what we can do!
+
 
 
 ## 🙊 Feedback
