@@ -182,9 +182,9 @@ Custom CadLib based converter for AutoCAD files.
 
 You can analyze vector files using this endpoint. The result is always a json file. The analyzers can be configured through the query string.
 
-`GET https://vector.express/api/v2/public/analyze/ext/analyzer`
+`POST https://vector.express/api/v2/public/analyze/ext/analyzer`
 
-`GET https://vector.express/api/v2/public/analyze/ext/analyzer1?analyzer-opt1=val&analyzer-opt2=val`
+`POST https://vector.express/api/v2/public/analyze/ext/analyzer1?analyzer-opt1=val&analyzer-opt2=val`
 
 ### Available analyzers
 
@@ -200,9 +200,9 @@ Returns a list of all groups in an SVG.
 
 You can process vector files using this endpoint. The processors can be configured through the query string.
 
-`GET https://vector.express/api/v2/public/process/ext/processor`
+`POST https://vector.express/api/v2/public/process/ext/processor`
 
-`GET https://vector.express/api/v2/public/process/ext/processor?processor-opt1=val&processor-opt2=val`
+`POST https://vector.express/api/v2/public/process/ext/processor?processor-opt1=val&processor-opt2=val`
 
 ### Available processors
 
