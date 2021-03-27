@@ -1,7 +1,7 @@
 <img alt="Logo" src="logo.svg" width=300>
 
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
-### Update March 2021 - Analyzing & Processing added
+### Update March 2021 - NPM Package Available
 
 Read more: https://www.smidyo.com/vector-express
 API Frontend: https://vector.express
@@ -18,6 +18,9 @@ It runs a combination of different conversion programs that can be chained toget
 
 Feel free to use it in your project. It does not support CORS, so you need to run it through/on a back-end.
 
+## 📦 Libraries
+
+- [Node.js - @smidyo/vectorexpress-nodejs](https://github.com/smidyo/vectorexpress-nodejs)
 
 ## 🏃‍♀️ Quickstart
 
