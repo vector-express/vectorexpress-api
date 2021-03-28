@@ -1,7 +1,10 @@
 <img alt="Logo" src="logo.svg" width=300>
 
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
-### Update March 2021 - NPM Package Available
+
+### Recent updates
+- Update March 2021 - 
+- NPM Package Available
 
 Read more: https://www.smidyo.com/vector-express
 API Frontend: https://vector.express
@@ -21,6 +24,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 ## 📦 Libraries
 
 - [Node.js - @smidyo/vectorexpress-nodejs](https://github.com/smidyo/vectorexpress-nodejs)
+
 
 ## 🏃‍♀️ Quickstart
 
@@ -73,6 +77,8 @@ Custom CadLib based converter for AutoCAD files.
 |:-------|:-----|:------------|
 |epsilon|Number||
 |arc-segments|Number|Line segment amount on arcs|
+|arc-segments-minimum|Number|The minimum amount of segments on arc|
+|space-strategy|String|Which ACAD space to prefer for export.<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
 
 
 #### /gs/
