@@ -3,7 +3,7 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
-- Update March 2021 - 
+- More configuration options for the CadLib converter
 - NPM Package Available
 
 Read more: https://www.smidyo.com/vector-express
