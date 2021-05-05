@@ -3,6 +3,7 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- Config option for SVGO
 - More configuration options for the CadLib converter
 - NPM Package Available
 
@@ -168,6 +169,7 @@ Custom CadLib based converter for AutoCAD files.
 |:-------|:----:|:-----------:|
 |enable|String|Which plugins to enable (see SVGO docs)|
 |disable|String|Which plugins to disable (see SVGO docs)|
+|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration)|
 |indent|String||
 |pretty|Boolean|Prettify code|
 |precision|Number|Precision|
