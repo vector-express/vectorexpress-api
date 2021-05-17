@@ -37,7 +37,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 
 2. POST to the the first path, with your file as the body
 
-`curl --data @myvector.dxf https://vector.express/api/v2/public/convert/dxf/cadlib/svg/`
+`curl --data-binary @myvector.dxf https://vector.express/api/v2/public/convert/dxf/cadlib/svg/`
 
 3. GET the file from the `resultUrl`
 
