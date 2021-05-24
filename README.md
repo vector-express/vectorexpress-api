@@ -167,8 +167,8 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     |     |      |     |     |    | ✓   |
 
 | Option | Type | Description |
-|:-------|:----:|:-----------:|
-|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration). This overrides all other configuration parameters if set.|
+|:-------|:-----|:------------|
+|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration), representing the default export configuration object. This overrides all other configuration parameters if set.|
 |configSvgo2Syntax|Boolean|Enable this to use the SVGO 2.0 configuration syntax, otherwise v1 syntax will be used.|
 |enable|String|Which plugins to enable (see SVGO docs)|
 |disable|String|Which plugins to disable (see SVGO docs)|
