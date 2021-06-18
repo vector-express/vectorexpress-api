@@ -3,10 +3,12 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- New /cad/ convertor for svg -> dxf conversion
+- New /linearmovement/ analyzer
+- New /union/ and /text-to-path/ processors
 - Updated SVGO to 2.3.0
 - Config option for SVGO
 - More configuration options for the CadLib converter
-- NPM Package Available
 
 Read more: https://www.smidyo.com/vector-express
 API Frontend: https://vector.express
@@ -64,6 +66,20 @@ You can up chain to three programs in the conversion path, and even configure th
 
 ### Available convertors
 
+#### /cad/
+
+Custom CAD-based converter for svg to AutoCAD conversion.
+
+| Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
+|:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
+| In     |    |     |     |     |     |      |     |     |    | ✓   |
+| Out    |    |     | ✓   | ✓   |     |      |     |     |    |     |
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|nojoin|Boolean|If enabled, do not join adjacent lines|
+|version|String|Which AutoCAD version to use<br/>`R32` / `R27` / `R24` / `R21` / `R18` / `R15` / `R14`|
+
 #### /cadlib/
 
 Custom CadLib based converter for AutoCAD files.
@@ -80,7 +96,7 @@ Custom CadLib based converter for AutoCAD files.
 |epsilon|Number||
 |arc-segments|Number|Line segment amount on arcs|
 |arc-segments-minimum|Number|The minimum amount of segments on arc|
-|space-strategy|String|Which ACAD space to prefer for export.<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
+|space-strategy|String|Which ACAD space to prefer for export<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
 
 
 #### /gs/
@@ -139,7 +155,7 @@ Custom CadLib based converter for AutoCAD files.
 
 #### /pstoedit/
 
-[pstoedit](http://www.calvina.de/pstoedit/) for converting EPS files to DXF.
+[pstoedit](http://www.calvina.de/pstoedit/) for converting eps files to dxf.
 
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
@@ -159,7 +175,7 @@ Custom CadLib based converter for AutoCAD files.
 
 #### /svgo/
 
-[SVGO](https://github.com/svg/svgo) is an SVG optimizer.
+[SVGO](https://github.com/svg/svgo) is an svg optimizer.
 
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
@@ -168,8 +184,8 @@ Custom CadLib based converter for AutoCAD files.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration), representing the default export configuration object. This overrides all other configuration parameters if set.|
-|configSvgo2Syntax|Boolean|Enable this to use the SVGO 2.0 configuration syntax, otherwise v1 syntax will be used.|
+|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration), representing the default export configuration object. This overrides all other configuration parameters if set|
+|configSvgo2Syntax|Boolean|Enable this to use the SVGO 2.0 configuration syntax, otherwise v1 syntax will be used|
 |enable|String|Which plugins to enable (see SVGO docs)|
 |disable|String|Which plugins to disable (see SVGO docs)|
 |indent|String||
@@ -205,6 +221,17 @@ You can analyze vector files using this endpoint. The result is always a json fi
 
 Returns a list of all groups in an SVG.
 
+#### /svg/linearmovement/
+
+Simulates 2D linear movement along all paths in the SVG. This can be used for 2D CNC estimation, for example laser cutting, routing, knife cutting and more.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|jerk|Number|An arbitrary unit setting the amount of jerk in the movement. Higher number = less deceleration around tight corners.|
+|mm-per-s|Number|The speed to move along the paths, in mm/s.|
+|drawing-unit|String|Which unit the SVG is drawn in.<br/>`mm` / `in` / `pt` / `px`|
+|path-info|Boolean|If enabled, information about individual paths and path segments are included in the outputs.|
+
 
 
 ## ⚙️ Process
@@ -227,7 +254,6 @@ Excludes certain groups from an SVG.
 |:-------|:-----|:------------|
 |groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
 
-
 #### /svg/include-only-groups/
 
 Includes only certain groups from an SVG.
@@ -236,6 +262,13 @@ Includes only certain groups from an SVG.
 |:-------|:-----|:------------|
 |groups|String|A list of group ID's to include, separated using the NUL syntax (%00)|
 
+#### /svg/union/
+
+Ungroups the SVG, and performs a union operation (boolean AND) on all objects.
+
+#### /svg/text-to-path/
+
+Converts text elements to paths. A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.
 
 #### /svg/xpath/
 
