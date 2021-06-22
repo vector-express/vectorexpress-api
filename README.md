@@ -5,7 +5,7 @@
 ### Recent updates
 - New /cad/ convertor for svg -> dxf conversion
 - New /linearmovement/ analyzer
-- New /union/ and /text-to-path/ processors
+- New /ungroup/, /convert-to-path/ and /boolean-operation/ processors
 - Updated SVGO to 2.3.0
 - Config option for SVGO
 - More configuration options for the CadLib converter
@@ -262,13 +262,33 @@ Includes only certain groups from an SVG.
 |:-------|:-----|:------------|
 |groups|String|A list of group ID's to include, separated using the NUL syntax (%00)|
 
-#### /svg/union/
+#### /svg/ungroup/
 
-Ungroups the SVG, and performs a union operation (boolean AND) on all objects.
+Ungroups all elements recursively. If you require a higher depth than 10, you can make multiple calls.
 
-#### /svg/text-to-path/
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
 
-Converts text elements to paths. A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.
+#### /svg/convert-to-path/
+
+Converts elements (text*, circle, rectangles, etc.) to paths.  
+
+\* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.
+
+#### /svg/boolean-operation/
+
+Performs a boolean operation on _target_ element(s) using _tool_ element(s).
+
+Keep in mind that this will not work on grouped elements and/or non-path elements. Please run the `convert-to-path` and `boolean-operation` processors on the drawing first.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|operation|String|Which operation to perform. Default is `union`.<br/>`union` / `difference` / `intersection` / `exclusion` / `division` / `cut-path` / `combine`  / `break-apart`|
+|tool-paths|String|CSS-style selector* to define the elements to use as the tool. Default is "*".|
+|target-paths|String|CSS-style selector* to define the elements to use as the target. Default is "*".|
+
+\* A sub-set of CSS2 selectors are supported. You can select by class and id, as well as exact attribute values. If selecting by fill/stroke defined in a `style` attribute, it may be beneficial to first run the SVG through the `/svgo/` converter using the `convertStyleToAttrs` plugin enabled.
 
 #### /svg/xpath/
 
