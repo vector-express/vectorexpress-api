@@ -274,7 +274,12 @@ Ungroups all elements recursively. If you require a higher depth than 10, you ca
 
 Converts elements (text*, circle, rectangles, etc.) to paths.  
 
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|selector|String|CSS-style selector** to define which elements to convert. Default is "*".|
+
 \* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.
+\** A sub-set of CSS2 selectors are supported. You can select by class and id, as well as exact attribute values. If selecting by fill/stroke defined in a `style` attribute, it may be beneficial to first run the SVG through the `/svgo/` converter using the `convertStyleToAttrs` plugin enabled.
 
 #### /svg/boolean-operation/
 
