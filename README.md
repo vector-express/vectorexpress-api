@@ -25,12 +25,50 @@ It runs a combination of different conversion programs that can be chained toget
 
 Feel free to use it in your project. It does not support CORS, so you need to run it through/on a back-end.
 
-## 📦 Libraries
+### Table of Contents
+* 📦  [**Libraries**](#libraries)
+* 🏃‍  [**Quickstart**](#quickstart)
+* 🪄  [**Convert**](#convert)
+  * [Get possible conversion paths between formats](#convert-get-formats)
+  * [Convert a file](#convert-file)
+  * [Available convertors](#available-convertors)
+    * [/cad/](#convertor-cad)
+    * [/cadlib/](#convertor-cadlib)
+    * [/gs/](#convertor-gs)
+    * [/hp2xx/](#convertor-hp2xx)
+    * [/libcdr/](#convertor-libcdr)
+    * [/librsvg/](#convertor-librsvg)
+    * [/pdf2svg/](#convertor-pdf2svg)
+    * [/pstoedit/](#convertor-pstoedit)
+    * [/svgo/](#convertor-svgo)
+    * [/uniconvertor/](#convertor-uniconvertor)
+* 🔍  [**Analyze**](#analyze)
+  * [Analyze a file](#analyze-file)
+  * [Available analyzers](#available-analyzers)
+    * [/svg/groups/](#analyzer-svg-groups)
+    * [/svg/linearmovement/](#analyzer-svg-linearmovement)
+* ⚙️ [**Process**](#process)
+  * [Process a file](#process-file)
+  * [Available processors](#available-processors)
+    * [/svg/boolean-operation/](#processor-svg-boolean-operation)
+    * [/svg/convert-to-path/](#processor-svg-convert-to-path)
+    * [/svg/exclude-groups/](#processor-svg-exclude-groups)
+    * [/svg/include-only-groups/](#processor-svg-include-only-groups)
+    * [/svg/ungroup/](#processor-svg-ungroup)
+    * [/svg/xpath/](#processor-svg-xpath)
+* 📄  [**Get a file**](#get-file)
+* 📨  [**Using an existing file**](#using-existing-file)
+* 🛑  [**Limits**](#limits)
+* 🔼  [**Increase limits?**](#increase-limits)
+* 💡  [**Feature request?**](#feature-request)
+* 🙊  [**Feedback**](#feedback)
+
+## 📦 <a name="libraries">Libraries</a>
 
 - [Node.js - @smidyo/vectorexpress-nodejs](https://github.com/smidyo/vectorexpress-nodejs)
 
 
-## 🏃‍♀️ Quickstart
+## 🏃‍♀️ <a name="quickstart">Quickstart</a>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/890e639ae3094e3617c0)
 
@@ -48,16 +86,16 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 
 
 
-## 🪄 Convert
+## 🪄 <a name="convert">Convert</a>
 
-### Get possible conversion paths between formats
+### <a name="convert-get-formats">Get possible conversion paths between formats</a>
 
 By requesting the conversion paths you can find out the most efficient path between your formats.
 
 `GET https://vector.express/api/v2/public/convert/ext/auto/ext`
 
 
-###  Convert a file
+### <a name="convert-file">Convert a file</a>
 
 You can up chain to three programs in the conversion path, and even configure them. See below for all programs and their options.
 
@@ -66,7 +104,7 @@ You can up chain to three programs in the conversion path, and even configure th
 
 ### Available convertors
 
-#### /cad/
+#### <a name="convertor-cad">/cad/</a>
 
 Custom CAD-based converter for svg to AutoCAD conversion.
 
@@ -80,7 +118,7 @@ Custom CAD-based converter for svg to AutoCAD conversion.
 |nojoin|Boolean|If enabled, do not join adjacent lines|
 |version|String|Which AutoCAD version to use<br/>`R32` / `R27` / `R24` / `R21` / `R18` / `R15` / `R14`|
 
-#### /cadlib/
+#### <a name="convertor-cadlib">/cadlib/</a>
 
 Custom CadLib based converter for AutoCAD files.
 
@@ -93,13 +131,13 @@ Custom CadLib based converter for AutoCAD files.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|epsilon|Number||
-|arc-segments|Number|Line segment amount on arcs|
-|arc-segments-minimum|Number|The minimum amount of segments on arc|
-|space-strategy|String|Which ACAD space to prefer for export<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
+|cadlib-epsilon|Number||
+|cadlib-arc-segments|Number|Line segment amount on arcs|
+|cadlib-arc-segments-minimum|Number|The minimum amount of segments on arc|
+|cadlib-space-strategy|String|Which ACAD space to prefer for export<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
 
 
-#### /gs/
+#### <a name="convertor-gs">/gs/</a>
 
 [Ghostscript](https://www.ghostscript.com/) based converter.
 
@@ -109,7 +147,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-#### /hp2xx/
+#### <a name="convertor-hp2xx">/hp2xx/</a>
 
 [hp2xx](https://www.gnu.org/software/hp2xx/) based converter for postscript.
 
@@ -119,7 +157,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      |     |     |    | ✓   |
 
 
-#### /libcdr/
+#### <a name="convertor-libcdr">/libcdr/</a>
 
 [libcdr](https://wiki.documentfoundation.org/DLP/Libraries/libcdr) based converter for CorelDRAW files.
 
@@ -129,7 +167,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     |     |      |     |     |    | ✓   |
 
 
-#### /librsvg/
+#### <a name="convertor-librsvg">/librsvg/</a>
 
 [librsvg](https://github.com/GNOME/librsvg) based converter for converting SVG files to various formats.
 
@@ -139,7 +177,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-#### /pdf2svg/
+#### <a name="convertor-pdf2svg">/pdf2svg/</a>
 
 [pdf2svg](https://github.com/dawbarton/pdf2svg) based converter for PDF files to SVG.
 
@@ -150,10 +188,10 @@ Custom CadLib based converter for AutoCAD files.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|page|Number|Which page to export|
+|pdf2svg-page|Number|Which page to export|
 
 
-#### /pstoedit/
+#### <a name="convertor-pstoedit">/pstoedit/</a>
 
 [pstoedit](http://www.calvina.de/pstoedit/) for converting eps files to dxf.
 
@@ -164,16 +202,16 @@ Custom CadLib based converter for AutoCAD files.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|page|Number|Which page to export|
-|xscale|Number|X scale|
-|yscale|Number|Y scale|
-|xshift|Number|X shift|
-|yshift|Number|Y shift|
-|centered|Boolean|Center drawing|
-|rgb|Boolean|
+|pstoedit-page|Number|Which page to export|
+|pstoedit-xscale|Number|X scale|
+|pstoedit-yscale|Number|Y scale|
+|pstoedit-xshift|Number|X shift|
+|pstoedit-yshift|Number|Y shift|
+|pstoedit-centered|Boolean|Center drawing|
+|pstoedit-rgb|Boolean|
 
 
-#### /svgo/
+#### <a name="convertor-svgo">/svgo/</a>
 
 [SVGO](https://github.com/svg/svgo) is an svg optimizer.
 
@@ -184,17 +222,17 @@ Custom CadLib based converter for AutoCAD files.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration), representing the default export configuration object. This overrides all other configuration parameters if set|
-|configSvgo2Syntax|Boolean|Enable this to use the SVGO 2.0 configuration syntax, otherwise v1 syntax will be used|
-|enable|String|Which plugins to enable (see SVGO docs)|
-|disable|String|Which plugins to disable (see SVGO docs)|
-|indent|String||
-|pretty|Boolean|Prettify code|
-|precision|Number|Precision|
-|multipass|Boolean||
+|svgo-config|String|JSON string of [configuration](https://github.com/svg/svgo#configuration), representing the default export configuration object. This overrides all other configuration parameters if set|
+|svgo-configSvgo2Syntax|Boolean|Enable this to use the SVGO 2.0 configuration syntax, otherwise v1 syntax will be used|
+|svgo-enable|String|Which plugins to enable (see SVGO docs)|
+|svgo-disable|String|Which plugins to disable (see SVGO docs)|
+|svgo-indent|String||
+|svgo-pretty|Boolean|Prettify code|
+|svgo-precision|Number|Precision|
+|svgo-multipass|Boolean||
 
 
-#### /uniconvertor/
+#### <a name="convertor-uniconvertor">/uniconvertor/</a>
 
 [Uniconvertor](https://sk1project.net/uc2/) based converter for various formats.
 
@@ -205,9 +243,9 @@ Custom CadLib based converter for AutoCAD files.
 
 
 
-## 🔍 Analyze
+## <a name="analyze">🔍 Analyze</a>
 
-### Analyze a file
+### <a name="analyze-file">Analyze a file</a>
 
 You can analyze vector files using this endpoint. The result is always a json file. The analyzers can be configured through the query string.
 
@@ -215,28 +253,28 @@ You can analyze vector files using this endpoint. The result is always a json fi
 
 `POST https://vector.express/api/v2/public/analyze/ext/analyzer1?analyzer-opt1=val&analyzer-opt2=val`
 
-### Available analyzers
+### <a name="available-analyzers">Available analyzers</a>
 
-#### /svg/groups/
+#### <a name="analyzer-svg-groups">/svg/groups/</a>
 
 Returns a list of all groups in an SVG.
 
-#### /svg/linearmovement/
+#### <a name="analyzer-svg-linearmovement">/svg/linearmovement/</a>
 
 Simulates 2D linear movement along all paths in the SVG. This can be used for 2D CNC estimation, for example laser cutting, routing, knife cutting and more.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|jerk|Number|An arbitrary unit setting the amount of jerk in the movement. Higher number = less deceleration around tight corners.|
-|mm-per-s|Number|The speed to move along the paths, in mm/s.|
-|drawing-unit|String|Which unit the SVG is drawn in.<br/>`mm` / `in` / `pt` / `px`|
-|path-info|Boolean|If enabled, information about individual paths and path segments are included in the outputs.|
+|linearmovement-jerk|Number|An arbitrary unit setting the amount of jerk in the movement. Higher number = less deceleration around tight corners.|
+|linearmovement-mm-per-s|Number|The speed to move along the paths, in mm/s.|
+|linearmovement-drawing-unit|String|Which unit the SVG is drawn in.<br/>`mm` / `in` / `pt` / `px`|
+|linearmovement-path-info|Boolean|If enabled, information about individual paths and path segments are included in the outputs.|
 
 
 
-## ⚙️ Process
+## <a name="process">⚙️ Process</a>
 
-### Process a file
+### <a name="process-file">Process a file</a>
 
 You can process vector files using this endpoint. The processors can be configured through the query string.
 
@@ -244,70 +282,70 @@ You can process vector files using this endpoint. The processors can be configur
 
 `POST https://vector.express/api/v2/public/process/ext/processor?processor-opt1=val&processor-opt2=val`
 
-### Available processors
+### <a name="available-processors">Available processors</a>
 
-#### /svg/exclude-groups/
+#### <a name="processor-svg-boolean-operation">/svg/boolean-operation/</a>
 
-Excludes certain groups from an SVG.
+Performs a boolean operation on _target_ element(s) using _tool_ element(s).
 
-| Option | Type | Description |
-|:-------|:-----|:------------|
-|groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
-
-#### /svg/include-only-groups/
-
-Includes only certain groups from an SVG.
+Keep in mind that this *will not work* on grouped elements and/or non-path elements. Please run the `convert-to-path` and `ungroup` processors on the drawing first.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|groups|String|A list of group ID's to include, separated using the NUL syntax (%00)|
+|boolean-operation-operation|String|Which operation to perform. Default is `union`.<br/>`union` / `difference` / `intersection` / `exclusion` / `division` / `cut-path` / `combine`  / `break-apart`|
+|boolean-operation-tool-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the tool. Default is "//svg:path".|
+|boolean-operation-target-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the target. Default is "//svg:path".|
 
-#### /svg/ungroup/
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(%@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
 
-Ungroups all elements recursively. If you require a higher depth than 10, you can make multiple calls.
-
-| Option | Type | Description |
-|:-------|:-----|:------------|
-|depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
-
-#### /svg/convert-to-path/
+#### <a name="processor-svg-convert-to-path">/svg/convert-to-path/</a>
 
 Converts elements (text*, circle, rectangles, etc.) to paths.  
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|selector|String|CSS-style selector** to define which elements to convert. Default is "*".|
+|convert-to-path-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector** to define which elements to convert. Default is "//svg:*".|
 
 \* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.<br/>
-\** A sub-set of CSS2 selectors are supported. You can select by class and id, as well as exact attribute values. If selecting by fill/stroke defined in a `style` attribute, it may be beneficial to first run the SVG through the `/svgo/` converter using the `convertStyleToAttrs` plugin enabled.
+\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(%@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
 
-#### /svg/boolean-operation/
+#### <a name="processor-svg-exclude-groups">/svg/exclude-groups/</a>
 
-Performs a boolean operation on _target_ element(s) using _tool_ element(s).
-
-Keep in mind that this will not work on grouped elements and/or non-path elements. Please run the `convert-to-path` and `boolean-operation` processors on the drawing first.
+Excludes certain groups from an SVG.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|operation|String|Which operation to perform. Default is `union`.<br/>`union` / `difference` / `intersection` / `exclusion` / `division` / `cut-path` / `combine`  / `break-apart`|
-|tool-paths|String|CSS-style selector* to define the elements to use as the tool. Default is "*".|
-|target-paths|String|CSS-style selector* to define the elements to use as the target. Default is "*".|
+|exclude-groups-groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
 
-\* A sub-set of CSS2 selectors are supported. You can select by class and id, as well as exact attribute values. If selecting by fill/stroke defined in a `style` attribute, it may be beneficial to first run the SVG through the `/svgo/` converter using the `convertStyleToAttrs` plugin enabled.
+#### <a name="processor-svg-include-only-groups">/svg/include-only-groups/</a>
 
-#### /svg/xpath/
-
-Returns a section of an SVG file using the xpath syntax.
+Includes only certain groups from an SVG.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|xpath|String|The xpath query|
-|text-output|Boolean|If true, the resulting file is a .txt, otherwise it is an .xml file|
-|add-root|Boolean|Whether or not to add the root element|
+|include-only-groups–groups|String|A list of group ID's to include, separated using the NUL syntax (%00)|
+
+#### <a name="processor-svg-ungroup">/svg/ungroup/</a>
+
+Ungroups all elements recursively. If you require a higher depth than 10, you can make multiple calls.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|ungroup-depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
+
+#### <a name="processor-svg-xpath">/svg/xpath/</a>
+
+Returns a section of an SVG file using the [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) syntax.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|xpath-xpath|String|The XPath query|
+|xpath-text-output|Boolean|If true, the resulting file is a .txt, otherwise it is an .xml file|
+|xpath-add-root|Boolean|Whether or not to add the root element|
 
 
 
-## 📄 Get a file
+## 📄 <a name="get-file">Get a file</a>
 
 After getting the result you can retrieve your files here.
 
@@ -315,7 +353,7 @@ After getting the result you can retrieve your files here.
 
 
 
-## 📨 Using an existing file 
+## 📨 <a name="using-existing-file">Using an existing file</a>
 
 You can also use an already uploaded or resulting file through the `use-file` query string.
 
@@ -323,25 +361,25 @@ You can also use an already uploaded or resulting file through the `use-file` qu
 
 
 
-## 🛑 Limits
+## 🛑 <a name="limits">Limits</a>
 
 Currently the public API is limited to 60 requests per hour, and a maximum output filesize of 10mb and certain CPU and memory limitations.
 
 
 
-## 🔼 Increase limits?
+## 🔼 <a name="increase-limits">Increase limits?</a>
 
 We offer a pay-as-you go plan that removes the rate limit and increases maximum file to 40 MB. Read more here: https://www.smidyo.com/vector-express
 
 
 
-## 💡 Feature request?
+## 💡 <a name="feature-request">Feature request?</a>
 
 Get in touch with us and we'll see what we can do!
 
 
 
-## 🙊 Feedback
+## 🙊 <a name="feedback">Feedback</a>
 
 Feel free to open up an issue, or just tweet at us @smidyo.
 
