@@ -296,7 +296,7 @@ Keep in mind that this *will not work* on grouped elements and/or non-path eleme
 |boolean-operation-tool-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the tool. Default is "//svg:path".|
 |boolean-operation-target-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the target. Default is "//svg:path".|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(%@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
 
 #### <a name="processor-svg-convert-to-path">/svg/convert-to-path/</a>
 
@@ -307,7 +307,7 @@ Converts elements (text*, circle, rectangles, etc.) to paths.
 |convert-to-path-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector** to define which elements to convert. Default is "//svg:*".|
 
 \* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.<br/>
-\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(%@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
+\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
 
 #### <a name="processor-svg-exclude-groups">/svg/exclude-groups/</a>
 
