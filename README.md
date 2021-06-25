@@ -20,7 +20,7 @@ It runs a combination of different conversion programs that can be chained toget
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
 | In     | ✓  | ✓   | ✓   | ✓   | ✓   | ✓    | ✓   | ✓   | ✓  | ✓   |
-| Out    |    |     |     | ✓   | ✓   |      | ✓   | ✓   | ✓  | ✓   |
+| Out    |    |     | ✓   | ✓   | ✓   |      | ✓   | ✓   | ✓  | ✓   |
 
 
 Feel free to use it in your project. It does not support CORS, so you need to run it through/on a back-end.
