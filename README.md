@@ -3,12 +3,12 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- New /fix-illustrator-svg-font-names/ processor
 - New /cad/ convertor for svg -> dxf conversion
 - New /linearmovement/ analyzer
 - New /ungroup/, /convert-to-path/ and /boolean-operation/ processors
 - Updated SVGO to 2.3.0
 - Config option for SVGO
-- More configuration options for the CadLib converter
 
 Read more: https://www.smidyo.com/vector-express
 API Frontend: https://vector.express
@@ -53,6 +53,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
     * [/svg/boolean-operation/](#processor-svg-boolean-operation)
     * [/svg/convert-to-path/](#processor-svg-convert-to-path)
     * [/svg/exclude-groups/](#processor-svg-exclude-groups)
+    * [/svg/fix-illustrator-svg-font-names/](#processor-svg-fix-illustrator-svg-font-names)
     * [/svg/include-only-groups/](#processor-svg-include-only-groups)
     * [/svg/ungroup/](#processor-svg-ungroup)
     * [/svg/xpath/](#processor-svg-xpath)
@@ -300,7 +301,7 @@ Keep in mind that this *will not work* on grouped elements and/or non-path eleme
 
 #### <a name="processor-svg-convert-to-path">/svg/convert-to-path/</a>
 
-Converts elements (text*, circle, rectangles, etc.) to paths.  
+Converts elements (text*, circle, rectangles, etc.) to paths. If your SVG file is exported from Adobe Illustrator, consider running the [fix-illustrator-svg-font-names](#processor-svg-fix-illustrator-svg-font-names) processor first.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
@@ -316,6 +317,12 @@ Excludes certain groups from an SVG.
 | Option | Type | Description |
 |:-------|:-----|:------------|
 |exclude-groups-groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
+
+#### <a name="processor-svg-fix-illustrator-svg-font-names">/svg/fix-illustrator-svg-font-names/</a>
+
+Attempts a correction of Adobe Illustrator's [incorrectly exported](https://gitlab.com/inkscape/inbox/-/issues/3673) font-family tag attribute/CSS property. For example, it will turn `font-family="OpenSans-Bold"` into `font-family="OpenSans" font-weight="bold"`.
+
+This is required for the [convert-to-path](#processor-svg-convert-to-path) processor to work.
 
 #### <a name="processor-svg-include-only-groups">/svg/include-only-groups/</a>
 
