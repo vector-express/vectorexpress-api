@@ -376,8 +376,9 @@ Exclude certain elements with XSLT. This can be used to remove unwanted defs, sp
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|xslt-exclude-xpath|String|The [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) syntax selector to exclude from the document.|
+|xslt-exclude-xpath|String|The [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) * syntax selector to exclude from the document.|
 
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work.
 
 ## 📄 <a name="get-file">Get a file</a>
 
