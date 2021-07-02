@@ -60,6 +60,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
     * [/svg/include-only-groups/](#processor-svg-include-only-groups)
     * [/svg/ungroup/](#processor-svg-ungroup)
     * [/svg/xpath/](#processor-svg-xpath)
+    * [/svg/xslt/](#processor-svg-xslt)
 * 📄  [**Get a file**](#get-file)
 * 📨  [**Using an existing file**](#using-existing-file)
 * 🛑  [**Limits**](#limits)
