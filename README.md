@@ -3,6 +3,8 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- /ungroup/ processor now has a "selector" parameter
+- New /change-attribute/ and /xslt/ processor
 - New /fix-illustrator-svg-font-names/ processor
 - New /cad/ convertor for svg -> dxf conversion
 - New /linearmovement/ analyzer
@@ -51,6 +53,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
   * [Process a file](#process-file)
   * [Available processors](#available-processors)
     * [/svg/boolean-operation/](#processor-svg-boolean-operation)
+    * [/svg/change-attribute/](#processor-change-attribute)
     * [/svg/convert-to-path/](#processor-svg-convert-to-path)
     * [/svg/exclude-groups/](#processor-svg-exclude-groups)
     * [/svg/fix-illustrator-svg-font-names/](#processor-svg-fix-illustrator-svg-font-names)
@@ -299,6 +302,19 @@ Keep in mind that this *will not work* on grouped elements and/or non-path eleme
 
 \* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
 
+#### <a name="processor-svg-convert-to-path">/svg/change-attribute/</a>
+
+Allows modification of attributes or inline CSS properties on certain elements. This can be used to set fill, stroke and many other parameters. You can also use an existing attribute value to set the new one. (For example, setting an outline to match the fill of a path) 
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|change-attribute-set-attr|String|Which attribute to set. Required.|
+|change-attribute-target-elements|String|Which set of element types to affect, separated with a comma. Required.|
+|change-attribute-to-value|String|What value to set the attribute to.|
+|change-attribute-to-attr-value|String|This can be set to get the value from another attribute on the same element. If this is set, "to-value" is ignored.|
+|change-attribute-to-attr-value-fallback|String|An optional fallback to set the attribute to if the attribute from "to-attr-value" has no value.|
+|change-attribute-override|String|If this is set, the value will always be set. If used in combination with not setting "to-value" or "to-attr-value", it will remove the attribute.|
+
 #### <a name="processor-svg-convert-to-path">/svg/convert-to-path/</a>
 
 Converts elements (text*, circle, rectangles, etc.) to paths. If your SVG file is exported from Adobe Illustrator, consider running the [fix-illustrator-svg-font-names](#processor-svg-fix-illustrator-svg-font-names) processor first.
@@ -334,11 +350,14 @@ Includes only certain groups from an SVG.
 
 #### <a name="processor-svg-ungroup">/svg/ungroup/</a>
 
-Ungroups all elements recursively. If you require a higher depth than 10, you can make multiple calls.
+Ungroups all elements and nested SVG's recursively. If you require a higher depth than 10, you can make multiple calls.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
 |ungroup-depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
+|ungroup-selector|Number|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select certain groups or nested SVG's. If this is set, "depth" is ignored|
+
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work.
 
 #### <a name="processor-svg-xpath">/svg/xpath/</a>
 
@@ -346,10 +365,17 @@ Returns a section of an SVG file using the [XPath](https://www.w3schools.com/xml
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|xpath-xpath|String|The XPath query|
+|xpath-xpath|String|The XPath selector|
 |xpath-text-output|Boolean|If true, the resulting file is a .txt, otherwise it is an .xml file|
 |xpath-add-root|Boolean|Whether or not to add the root element|
 
+#### <a name="processor-svg-xslt">/svg/xslt/</a>
+
+Exclude certain elements with XSLT. This can be used to remove unwanted defs, specific elements and more.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|xslt-exclude-xpath|String|The [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) syntax selector to exclude from the document.|
 
 
 ## 📄 <a name="get-file">Get a file</a>
