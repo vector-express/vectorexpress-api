@@ -56,6 +56,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
     * [/svg/change-attribute/](#processor-change-attribute)
     * [/svg/convert-to-path/](#processor-svg-convert-to-path)
     * [/svg/exclude-groups/](#processor-svg-exclude-groups)
+    * [/svg/flatten-beziers/](#processor-svg-flatten-beziers)
     * [/svg/fix-illustrator-svg-font-names/](#processor-svg-fix-illustrator-svg-font-names)
     * [/svg/include-only-groups/](#processor-svg-include-only-groups)
     * [/svg/ungroup/](#processor-svg-ungroup)
@@ -301,7 +302,7 @@ Keep in mind that this *will not work* on grouped elements and/or non-path eleme
 |boolean-operation-tool-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the tool. Default is "//svg:path".|
 |boolean-operation-target-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the target. Default is "//svg:path".|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(@style,'%23ffffff')`
 
 #### <a name="processor-svg-convert-to-path">/svg/change-attribute/</a>
 
@@ -325,7 +326,7 @@ Converts elements (text*, circle, rectangles, etc.) to paths. If your SVG file i
 |convert-to-path-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector** to define which elements to convert. Default is "//svg:*".|
 
 \* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.<br/>
-\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(%40style,'%23ffffff')`
+\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(@style,'%23ffffff')`
 
 #### <a name="processor-svg-exclude-groups">/svg/exclude-groups/</a>
 
@@ -334,6 +335,16 @@ Excludes certain groups from an SVG.
 | Option | Type | Description |
 |:-------|:-----|:------------|
 |exclude-groups-groups|String|A list of group ID's to exclude, separated using the NUL syntax (%00)|
+
+#### <a name="processor-svg-flatten-beziers">/svg/flatten-beziers/</a>
+
+Flattens beziers curves into straight lines.
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|flatten-beziers-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select which path element's beziers to flatten.
+
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
 
 #### <a name="processor-svg-fix-illustrator-svg-font-names">/svg/fix-illustrator-svg-font-names/</a>
 
@@ -356,9 +367,9 @@ Ungroups all elements and nested SVG's recursively. If you require a higher dept
 | Option | Type | Description |
 |:-------|:-----|:------------|
 |ungroup-depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
-|ungroup-selector|Number|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select certain groups or nested SVG's. If this is set, "depth" is ignored|
+|ungroup-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select certain groups or nested SVG's. If this is set, "depth" is ignored|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work.
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
 
 #### <a name="processor-svg-xpath">/svg/xpath/</a>
 
@@ -378,7 +389,7 @@ Exclude certain elements with XSLT. This can be used to remove unwanted defs, sp
 |:-------|:-----|:------------|
 |xslt-exclude-xpath|String|The [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) * syntax selector to exclude from the document.|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. Also remember to URL-encode your xpath, otherwise it may not work.
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
 
 ## 📄 <a name="get-file">Get a file</a>
 
