@@ -306,7 +306,7 @@ You can analyze vector files using this endpoint. The result is always a json fi
 
 ### <a name="available-analyzers">Available analyzers</a>
 
-#### <a name="analyzer-get-svg-unit">/svg/get-svg-unit/</a>
+#### <a name="analyzer-svg-get-svg-unit">/svg/get-svg-unit/</a>
 
 Gets the unit from an svg document. Also returns an `explicit` parameter which is true if the unit is explicitly set. (otherwise the unit is px, as per the svg standard)
 
