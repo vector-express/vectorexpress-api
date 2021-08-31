@@ -3,14 +3,12 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- New /cad2pdf/ and /cad2svg/ converter
+- /cad/ converter deprecated, replaced with /svg2cad/ converter
+- Internal improvements
 - /ungroup/ processor now has a "selector" parameter
 - New /change-attribute/ and /xslt/ processor
 - New /fix-illustrator-svg-font-names/ processor
-- New /cad/ convertor for svg -> dxf conversion
-- New /linearmovement/ analyzer
-- New /ungroup/, /convert-to-path/ and /boolean-operation/ processors
-- Updated SVGO to 2.3.0
-- Config option for SVGO
 
 Read more: https://www.smidyo.com/vector-express
 API Frontend: https://vector.express
@@ -24,8 +22,12 @@ It runs a combination of different conversion programs that can be chained toget
 | In     | ✓  | ✓   | ✓   | ✓   | ✓   | ✓    | ✓   | ✓   | ✓  | ✓   |
 | Out    |    |     | ✓   | ✓   | ✓   |      | ✓   | ✓   | ✓  | ✓   |
 
-
 Feel free to use it in your project. It does not support CORS, so you need to run it through/on a back-end.
+
+### 💌 Stay updated
+
+You can sign up to our newsletter here to be informed about new features, upcoming changes and deprecations:
+https://share.hsforms.com/1_UNClg4URWWNmSbFEaI-hQ5n6kv
 
 ### Table of Contents
 * 📦  [**Libraries**](#libraries)
@@ -33,17 +35,19 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 * 🪄  [**Convert**](#convert)
   * [Get possible conversion paths between formats](#convert-get-formats)
   * [Convert a file](#convert-file)
-  * [Available convertors](#available-convertors)
-    * [/cad/](#convertor-cad)
-    * [/cadlib/](#convertor-cadlib)
-    * [/gs/](#convertor-gs)
-    * [/hp2xx/](#convertor-hp2xx)
-    * [/libcdr/](#convertor-libcdr)
-    * [/librsvg/](#convertor-librsvg)
-    * [/pdf2svg/](#convertor-pdf2svg)
-    * [/pstoedit/](#convertor-pstoedit)
-    * [/svgo/](#convertor-svgo)
-    * [/uniconvertor/](#convertor-uniconvertor)
+  * [Available converter](#available-converter)
+    * [/cad2pdf/](#converter-cad2pdf)
+    * [/cad2svg/](#converter-cad2svg)
+    * [/cadlib/](#converter-cadlib)
+    * [/gs/](#converter-gs)
+    * [/hp2xx/](#converter-hp2xx)
+    * [/libcdr/](#converter-libcdr)
+    * [/librsvg/](#converter-librsvg)
+    * [/pdf2svg/](#converter-pdf2svg)
+    * [/pstoedit/](#converter-pstoedit)
+    * [/svg2cad/](#converter-svg2cad)
+    * [/svgo/](#converter-svgo)
+    * [/uniconvertor/](#converter-uniconvertor)
 * 🔍  [**Analyze**](#analyze)
   * [Analyze a file](#analyze-file)
   * [Available analyzers](#available-analyzers)
@@ -108,23 +112,49 @@ You can up chain to three programs in the conversion path, and even configure th
 `POST https://vector.express/api/v2/public/convert/ext/prog1/ext/prog2/ext?prog1-opt=val&prog2-opt=val`
 
 
-### Available convertors
+### Available converters
 
-#### <a name="convertor-cad">/cad/</a>
+#### <a name="converter-cad2pdf">/cad2pdf/</a>
 
-Custom CAD-based converter for svg to AutoCAD conversion.
+A converter for converting dwg and dxf cad files into pdf.
 
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
-| In     |    |     |     |     |     |      |     |     |    | ✓   |
-| Out    |    |     | ✓   | ✓   |     |      |     |     |    |     |
+| In     |    |     | ✓   | ✓   |     |      |     |     |    |     |
+| Out    |    |     |     |     |     |      | ✓   |     |    |     |
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
-|nojoin|Boolean|If enabled, do not join adjacent lines|
-|version|String|Which AutoCAD version to use<br/>`R32` / `R27` / `R24` / `R21` / `R18` / `R15` / `R14`|
+|cad2pdf-auto-fit|Boolean|Automatically fit the drawing to to the paper size|
+|cad2pdf-auto-orientation|Boolean|Automatically orient the drawing to fit the paper|
+|cad2pdf-center|Boolean|Center the drawing|
+|cad2pdf-point-size|Number|Point size in mm|
+|cad2pdf-grayscale|Boolean|Grayscale|
+|cad2pdf-landscape|Boolean|Use landscape paper|
+|cad2pdf-margin|Number|Margin in millimeter|
+|cad2pdf-paper-size|String|Paper size in the format "WxH"|
+|cad2pdf-scale|Number|Scale the drawing|
+|cad2pdf-unit|String|Override the drawing's unit (in/m/mm)|
 
-#### <a name="convertor-cadlib">/cadlib/</a>
+#### <a name="converter-cad2svg">/cad2svg/</a>
+
+A converter for converting dwg and dxf cad files into svg.
+
+| Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
+|:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
+| In     |    |     | ✓   | ✓   |     |      |     |     |    |     |
+| Out    |    |     |     |     |     |      |     |     |    | ✓   |
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|cad2svg-expand-page-for-stroke-width|Boolean|Expand the page to accomodate the stroke width|
+|cad2svg-block|String|Export a specific block|
+|cad2svg-margin|Number|Margin|
+|cad2svg-include-bitmaps|Boolean|Include bitmaps in the export|
+|cad2svg-layers|String|Comma delimted list of layers to export|
+|cad2svg-unit|String|Override the drawing's unit (in/m/mm)|
+
+#### <a name="converter-cadlib">/cadlib/</a>
 
 Custom CadLib based converter for AutoCAD files.
 
@@ -143,7 +173,7 @@ Custom CadLib based converter for AutoCAD files.
 |cadlib-space-strategy|String|Which ACAD space to prefer for export<br/>`prefer_native_space` / `prefer_paper_space` / `prefer_model_space`|
 
 
-#### <a name="convertor-gs">/gs/</a>
+#### <a name="converter-gs">/gs/</a>
 
 [Ghostscript](https://www.ghostscript.com/) based converter.
 
@@ -153,7 +183,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-#### <a name="convertor-hp2xx">/hp2xx/</a>
+#### <a name="converter-hp2xx">/hp2xx/</a>
 
 [hp2xx](https://www.gnu.org/software/hp2xx/) based converter for postscript.
 
@@ -163,7 +193,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      |     |     |    | ✓   |
 
 
-#### <a name="convertor-libcdr">/libcdr/</a>
+#### <a name="converter-libcdr">/libcdr/</a>
 
 [libcdr](https://wiki.documentfoundation.org/DLP/Libraries/libcdr) based converter for CorelDRAW files.
 
@@ -173,7 +203,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     |     |      |     |     |    | ✓   |
 
 
-#### <a name="convertor-librsvg">/librsvg/</a>
+#### <a name="converter-librsvg">/librsvg/</a>
 
 [librsvg](https://github.com/GNOME/librsvg) based converter for converting SVG files to various formats.
 
@@ -183,7 +213,7 @@ Custom CadLib based converter for AutoCAD files.
 | Out    |    |     |     |     | ✓   |      | ✓   |     | ✓  |     |
 
 
-#### <a name="convertor-pdf2svg">/pdf2svg/</a>
+#### <a name="converter-pdf2svg">/pdf2svg/</a>
 
 [pdf2svg](https://github.com/dawbarton/pdf2svg) based converter for PDF files to SVG.
 
@@ -197,7 +227,7 @@ Custom CadLib based converter for AutoCAD files.
 |pdf2svg-page|Number|Which page to export|
 
 
-#### <a name="convertor-pstoedit">/pstoedit/</a>
+#### <a name="converter-pstoedit">/pstoedit/</a>
 
 [pstoedit](http://www.calvina.de/pstoedit/) for converting eps files to dxf.
 
@@ -216,6 +246,19 @@ Custom CadLib based converter for AutoCAD files.
 |pstoedit-centered|Boolean|Center drawing|
 |pstoedit-rgb|Boolean|
 
+#### <a name="converter-cad">/svg2cad/</a>
+
+For converting svg files into dxf or dwg cad files.
+
+| Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
+|:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
+| In     |    |     |     |     |     |      |     |     |    | ✓   |
+| Out    |    |     | ✓   | ✓   |     |      |     |     |    |     |
+
+| Option | Type | Description |
+|:-------|:-----|:------------|
+|svg2cad-nojoin|Boolean|If enabled, do not join adjacent lines|
+|svg2cad-version|String|Which AutoCAD version to use<br/>`R32` / `R27` / `R24` / `R21` / `R18` / `R15` / `R14`|
 
 #### <a name="convertor-svgo">/svgo/</a>
 
@@ -238,7 +281,7 @@ Custom CadLib based converter for AutoCAD files.
 |svgo-multipass|Boolean||
 
 
-#### <a name="convertor-uniconvertor">/uniconvertor/</a>
+#### <a name="converter-uniconvertor">/uniconvertor/</a>
 
 [Uniconvertor](https://sk1project.net/uc2/) based converter for various formats.
 
