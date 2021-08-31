@@ -3,6 +3,7 @@
 # [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
+- New /get-svg-unit/ analyzer
 - New /cad2pdf/ and /cad2svg/ converter
 - /cad/ converter deprecated, replaced with /svg2cad/ converter
 - Internal improvements
@@ -205,7 +206,7 @@ Custom CadLib based converter for AutoCAD files.
 
 #### <a name="converter-librsvg">/librsvg/</a>
 
-[librsvg](https://github.com/GNOME/librsvg) based converter for converting SVG files to various formats.
+[librsvg](https://github.com/GNOME/librsvg) based converter for converting svg files to various formats.
 
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
@@ -215,7 +216,7 @@ Custom CadLib based converter for AutoCAD files.
 
 #### <a name="converter-pdf2svg">/pdf2svg/</a>
 
-[pdf2svg](https://github.com/dawbarton/pdf2svg) based converter for PDF files to SVG.
+[pdf2svg](https://github.com/dawbarton/pdf2svg) based converter for pdf files to svg.
 
 | Format | ai | cdr | dwg | dxf | eps | hpgl | pdf | plt | ps | svg |
 |:-------|:--:|:---:|:---:|:---:|:---:|:----:|:---:|:---:|:--:|:---:|
@@ -304,13 +305,17 @@ You can analyze vector files using this endpoint. The result is always a json fi
 
 ### <a name="available-analyzers">Available analyzers</a>
 
+#### <a name="analyzer-get-svg-unit">/svg/get-svg-unit/</a>
+
+Gets the unit from an svg document. Also returns an `explicit` parameter which is true if the unit is explicitly set. (otherwise the unit is px, as per the svg standard)
+
 #### <a name="analyzer-svg-groups">/svg/groups/</a>
 
-Returns a list of all groups in an SVG.
+Returns a list of all groups in an svg.
 
 #### <a name="analyzer-svg-linearmovement">/svg/linearmovement/</a>
 
-Simulates 2D linear movement along all paths in the SVG. This can be used for 2D CNC estimation, for example laser cutting, routing, knife cutting and more.
+Simulates 2D linear movement along all paths in the svg. This can be used for 2D CNC estimation, for example laser cutting, routing, knife cutting and more.
 
 | Option | Type | Description |
 |:-------|:-----|:------------|
