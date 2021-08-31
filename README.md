@@ -52,6 +52,7 @@ https://share.hsforms.com/1_UNClg4URWWNmSbFEaI-hQ5n6kv
 * 🔍  [**Analyze**](#analyze)
   * [Analyze a file](#analyze-file)
   * [Available analyzers](#available-analyzers)
+    * [/svg/get-svg-unit/](#analyzer-svg-get-svg-unit)
     * [/svg/groups/](#analyzer-svg-groups)
     * [/svg/linearmovement/](#analyzer-svg-linearmovement)
 * ⚙️ [**Process**](#process)
