@@ -12,9 +12,10 @@
 - New /fix-illustrator-svg-font-names/ processor
 
 Read more: https://www.smidyo.com/vector-express
+
 API Frontend: https://vector.express
 
-Vector Express is a free-to-use API for converting, analyzing and processing vector files. Made with love by [@Smidyo](https://twitter.com/smidyo)
+Vector Express is a free-to-use API for converting, analyzing and processing vector files. Made with love by [@vector\_express](https://twitter.com/vector_express)
 
 It runs a combination of different conversion programs that can be chained together to convert between a wide area of formats.
 
@@ -77,7 +78,7 @@ https://share.hsforms.com/1_UNClg4URWWNmSbFEaI-hQ5n6kv
 
 ## 📦 <a name="libraries">Libraries</a>
 
-- [Node.js - @smidyo/vectorexpress-nodejs](https://github.com/smidyo/vectorexpress-nodejs)
+- [Node.js - @vector-express/vectorexpress-nodejs](https://github.com/vector-express/vectorexpress-nodejs)
 
 
 ## 🏃‍♀️ <a name="quickstart">Quickstart</a>
@@ -464,7 +465,7 @@ Currently the public API is limited to 60 requests per hour, and a maximum outpu
 
 ## 🔼 <a name="increase-limits">Increase limits?</a>
 
-We offer a pay-as-you go plan that removes the rate limit and increases maximum file to 40 MB. Read more here: https://www.smidyo.com/vector-express
+We offer a [pay-as-you go plan](https://www.smidyo.com/vector-express) that removes the rate limit and increases maximum file to 40 MiB.
 
 
 
@@ -476,6 +477,5 @@ Get in touch with us and we'll see what we can do!
 
 ## 🙊 <a name="feedback">Feedback</a>
 
-Feel free to open up an issue, or just tweet at us @smidyo.
+Feel free to open up an issue, or just tweet at us [@vector\_express](https://twitter.com/vector_express).
 
-You can also shoot us a mail at frank@smidyo.com!
