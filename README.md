@@ -352,7 +352,7 @@ Keep in mind that this *will not work* on grouped elements and/or non-path eleme
 |boolean-operation-tool-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the tool. Default is "//svg:path".|
 |boolean-operation-target-paths|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to define the elements to use as the target. Default is "//svg:path".|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(@style,'%23ffffff')`
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a white-fill style: `//svg:path[contains(@style,'#ffffff')`
 
 #### <a name="processor-svg-convert-to-path">/svg/change-attribute/</a>
 
@@ -376,7 +376,7 @@ Converts elements (text*, circle, rectangles, etc.) to paths. If your SVG file i
 |convert-to-path-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector** to define which elements to convert. Default is "//svg:*".|
 
 \* A selection of open source fonts are compatible. Contact us if you need to convert an unsupported font.<br/>
-\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a style to be filled with white: `//svg:path[contains(@style,'#ffffff')` -> `//svg:path[contains(@style,'%23ffffff')`
+\** Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements with a white-fill style: `//svg:path[contains(@style,'#ffffff')`
 
 #### <a name="processor-svg-exclude-groups">/svg/exclude-groups/</a>
 
@@ -394,7 +394,7 @@ Flattens beziers curves into straight lines.
 |:-------|:-----|:------------|
 |flatten-beziers-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select which path element's beziers to flatten.
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a white-fill style: `//svg:path[contains(@style,'#ffffff')`
 
 #### <a name="processor-svg-fix-illustrator-svg-font-names">/svg/fix-illustrator-svg-font-names/</a>
 
@@ -419,7 +419,7 @@ Ungroups all elements and nested SVG's recursively. If you require a higher dept
 |ungroup-depth|Number|The depth to ungroup, 1 - 10. Default is 10.|
 |ungroup-selector|String|[XPath](https://www.w3schools.com/xml/xpath_syntax.asp) selector* to select certain groups or nested SVG's. If this is set, "depth" is ignored|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a white-fill style: `//svg:path[contains(@style,'#ffffff')`
 
 #### <a name="processor-svg-xpath">/svg/xpath/</a>
 
@@ -439,7 +439,7 @@ Exclude certain elements with XSLT. This can be used to remove unwanted defs, sp
 |:-------|:-----|:------------|
 |xslt-exclude-xpath|String|The [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) * syntax selector to exclude from the document.|
 
-\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace.
+\* Please note that elements need to be prefixed with `svg:` to match the SVG namespace. E.g. to select all elements elements with a white-fill style: `//svg:path[contains(@style,'#ffffff')`
 
 ## 📄 <a name="get-file">Get a file</a>
 
