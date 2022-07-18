@@ -1,6 +1,6 @@
 <img alt="Logo" src="logo.svg" width=300>
 
-# [Vector Express](https://www.smidyo.com/vector-express) - Free Vector Conversion, Analyzing and Processing API
+# [Vector Express](https://vector.express/pricing) - Free Vector Conversion, Analyzing and Processing API
 
 ### Recent updates
 - New /get-svg-unit/ analyzer
@@ -11,7 +11,7 @@
 - New /change-attribute/ and /xslt/ processor
 - New /fix-illustrator-svg-font-names/ processor
 
-Read more: https://www.smidyo.com/vector-express
+Read more: <https://vector.express/pricing>
 
 API Frontend: https://vector.express
 
@@ -465,7 +465,7 @@ Currently the public API is limited to 60 requests per hour, and a maximum outpu
 
 ## 🔼 <a name="increase-limits">Increase limits?</a>
 
-We offer a [pay-as-you go plan](https://www.smidyo.com/vector-express) that removes the rate limit and increases maximum file to 40 MiB.
+We offer a [pay-as-you go plan](https://vector.express/pricing) that removes the rate limit and increases maximum file to 40 MiB.
 
 
 
