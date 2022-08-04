@@ -29,7 +29,7 @@ Feel free to use it in your project. It does not support CORS, so you need to ru
 ### 💌 Stay updated
 
 You can sign up to our newsletter here to be informed about new features, upcoming changes and deprecations:
-https://share.hsforms.com/1_UNClg4URWWNmSbFEaI-hQ5n6kv
+<https://buttondown.email/vector.express>
 
 ### Table of Contents
 * 📦  [**Libraries**](#libraries)
