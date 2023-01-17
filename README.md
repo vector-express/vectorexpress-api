@@ -459,7 +459,7 @@ You can also use an already uploaded or resulting file through the `use-file` qu
 
 ## 🛑 <a name="limits">Limits</a>
 
-Currently the public API is limited to 60 requests per hour, and a maximum output filesize of 10mb and certain CPU and memory limitations.
+Currently the public API is limited to 5 requests per hour, and a maximum output filesize of 1 MiB and certain CPU and memory limitations.
 
 
 
